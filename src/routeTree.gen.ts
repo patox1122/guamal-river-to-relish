@@ -10,18 +10,30 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AlojamientoRouteImport } from './routes/alojamiento'
 import { Route as ConoceRouteImport } from './routes/conoce'
 import { Route as CulturaRouteImport } from './routes/cultura'
 import { Route as FestivalesRouteImport } from './routes/festivales'
+import { Route as FuentesRouteImport } from './routes/fuentes'
 import { Route as GastronomiaRouteImport } from './routes/gastronomia'
+import { Route as MapaRouteImport } from './routes/mapa'
 import { Route as NaturalezaRouteImport } from './routes/naturaleza'
+import { Route as NegociosRouteImport } from './routes/negocios'
 import { Route as ParquesRouteImport } from './routes/parques'
+import { Route as PlanificaRouteImport } from './routes/planifica'
+import { Route as ProyectoRouteImport } from './routes/proyecto'
+import { Route as RuralRouteImport } from './routes/rural'
 import { Route as LugaresIndexRouteImport } from './routes/lugares.index'
 import { Route as LugaresSlugRouteImport } from './routes/lugares.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlojamientoRoute = AlojamientoRouteImport.update({
+  id: '/alojamiento',
+  path: '/alojamiento',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ConoceRoute = ConoceRouteImport.update({
@@ -39,9 +51,19 @@ const FestivalesRoute = FestivalesRouteImport.update({
   path: '/festivales',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FuentesRoute = FuentesRouteImport.update({
+  id: '/fuentes',
+  path: '/fuentes',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GastronomiaRoute = GastronomiaRouteImport.update({
   id: '/gastronomia',
   path: '/gastronomia',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MapaRoute = MapaRouteImport.update({
+  id: '/mapa',
+  path: '/mapa',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NaturalezaRoute = NaturalezaRouteImport.update({
@@ -49,9 +71,29 @@ const NaturalezaRoute = NaturalezaRouteImport.update({
   path: '/naturaleza',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NegociosRoute = NegociosRouteImport.update({
+  id: '/negocios',
+  path: '/negocios',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ParquesRoute = ParquesRouteImport.update({
   id: '/parques',
   path: '/parques',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlanificaRoute = PlanificaRouteImport.update({
+  id: '/planifica',
+  path: '/planifica',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProyectoRoute = ProyectoRouteImport.update({
+  id: '/proyecto',
+  path: '/proyecto',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RuralRoute = RuralRouteImport.update({
+  id: '/rural',
+  path: '/rural',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LugaresIndexRoute = LugaresIndexRouteImport.update({
@@ -67,35 +109,56 @@ const LugaresSlugRoute = LugaresSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/alojamiento': typeof AlojamientoRoute
   '/conoce': typeof ConoceRoute
   '/cultura': typeof CulturaRoute
   '/festivales': typeof FestivalesRoute
+  '/fuentes': typeof FuentesRoute
   '/gastronomia': typeof GastronomiaRoute
+  '/mapa': typeof MapaRoute
   '/naturaleza': typeof NaturalezaRoute
+  '/negocios': typeof NegociosRoute
   '/parques': typeof ParquesRoute
+  '/planifica': typeof PlanificaRoute
+  '/proyecto': typeof ProyectoRoute
+  '/rural': typeof RuralRoute
   '/lugares/$slug': typeof LugaresSlugRoute
   '/lugares/': typeof LugaresIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/alojamiento': typeof AlojamientoRoute
   '/conoce': typeof ConoceRoute
   '/cultura': typeof CulturaRoute
   '/festivales': typeof FestivalesRoute
+  '/fuentes': typeof FuentesRoute
   '/gastronomia': typeof GastronomiaRoute
+  '/mapa': typeof MapaRoute
   '/naturaleza': typeof NaturalezaRoute
+  '/negocios': typeof NegociosRoute
   '/parques': typeof ParquesRoute
+  '/planifica': typeof PlanificaRoute
+  '/proyecto': typeof ProyectoRoute
+  '/rural': typeof RuralRoute
   '/lugares/$slug': typeof LugaresSlugRoute
   '/lugares': typeof LugaresIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/alojamiento': typeof AlojamientoRoute
   '/conoce': typeof ConoceRoute
   '/cultura': typeof CulturaRoute
   '/festivales': typeof FestivalesRoute
+  '/fuentes': typeof FuentesRoute
   '/gastronomia': typeof GastronomiaRoute
+  '/mapa': typeof MapaRoute
   '/naturaleza': typeof NaturalezaRoute
+  '/negocios': typeof NegociosRoute
   '/parques': typeof ParquesRoute
+  '/planifica': typeof PlanificaRoute
+  '/proyecto': typeof ProyectoRoute
+  '/rural': typeof RuralRoute
   '/lugares/$slug': typeof LugaresSlugRoute
   '/lugares/': typeof LugaresIndexRoute
 }
@@ -103,46 +166,74 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/alojamiento'
     | '/conoce'
     | '/cultura'
     | '/festivales'
+    | '/fuentes'
     | '/gastronomia'
+    | '/mapa'
     | '/naturaleza'
+    | '/negocios'
     | '/parques'
+    | '/planifica'
+    | '/proyecto'
+    | '/rural'
     | '/lugares/$slug'
     | '/lugares/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/alojamiento'
     | '/conoce'
     | '/cultura'
     | '/festivales'
+    | '/fuentes'
     | '/gastronomia'
+    | '/mapa'
     | '/naturaleza'
+    | '/negocios'
     | '/parques'
+    | '/planifica'
+    | '/proyecto'
+    | '/rural'
     | '/lugares/$slug'
     | '/lugares'
   id:
     | '__root__'
     | '/'
+    | '/alojamiento'
     | '/conoce'
     | '/cultura'
     | '/festivales'
+    | '/fuentes'
     | '/gastronomia'
+    | '/mapa'
     | '/naturaleza'
+    | '/negocios'
     | '/parques'
+    | '/planifica'
+    | '/proyecto'
+    | '/rural'
     | '/lugares/$slug'
     | '/lugares/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AlojamientoRoute: typeof AlojamientoRoute
   ConoceRoute: typeof ConoceRoute
   CulturaRoute: typeof CulturaRoute
   FestivalesRoute: typeof FestivalesRoute
+  FuentesRoute: typeof FuentesRoute
   GastronomiaRoute: typeof GastronomiaRoute
+  MapaRoute: typeof MapaRoute
   NaturalezaRoute: typeof NaturalezaRoute
+  NegociosRoute: typeof NegociosRoute
   ParquesRoute: typeof ParquesRoute
+  PlanificaRoute: typeof PlanificaRoute
+  ProyectoRoute: typeof ProyectoRoute
+  RuralRoute: typeof RuralRoute
   LugaresSlugRoute: typeof LugaresSlugRoute
   LugaresIndexRoute: typeof LugaresIndexRoute
 }
@@ -154,6 +245,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/alojamiento': {
+      id: '/alojamiento'
+      path: '/alojamiento'
+      fullPath: '/alojamiento'
+      preLoaderRoute: typeof AlojamientoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/conoce': {
@@ -177,11 +275,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FestivalesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/fuentes': {
+      id: '/fuentes'
+      path: '/fuentes'
+      fullPath: '/fuentes'
+      preLoaderRoute: typeof FuentesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/gastronomia': {
       id: '/gastronomia'
       path: '/gastronomia'
       fullPath: '/gastronomia'
       preLoaderRoute: typeof GastronomiaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mapa': {
+      id: '/mapa'
+      path: '/mapa'
+      fullPath: '/mapa'
+      preLoaderRoute: typeof MapaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/naturaleza': {
@@ -191,11 +303,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NaturalezaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/negocios': {
+      id: '/negocios'
+      path: '/negocios'
+      fullPath: '/negocios'
+      preLoaderRoute: typeof NegociosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/parques': {
       id: '/parques'
       path: '/parques'
       fullPath: '/parques'
       preLoaderRoute: typeof ParquesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/planifica': {
+      id: '/planifica'
+      path: '/planifica'
+      fullPath: '/planifica'
+      preLoaderRoute: typeof PlanificaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/proyecto': {
+      id: '/proyecto'
+      path: '/proyecto'
+      fullPath: '/proyecto'
+      preLoaderRoute: typeof ProyectoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rural': {
+      id: '/rural'
+      path: '/rural'
+      fullPath: '/rural'
+      preLoaderRoute: typeof RuralRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/lugares/': {
@@ -217,12 +357,19 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AlojamientoRoute: AlojamientoRoute,
   ConoceRoute: ConoceRoute,
   CulturaRoute: CulturaRoute,
   FestivalesRoute: FestivalesRoute,
+  FuentesRoute: FuentesRoute,
   GastronomiaRoute: GastronomiaRoute,
+  MapaRoute: MapaRoute,
   NaturalezaRoute: NaturalezaRoute,
+  NegociosRoute: NegociosRoute,
   ParquesRoute: ParquesRoute,
+  PlanificaRoute: PlanificaRoute,
+  ProyectoRoute: ProyectoRoute,
+  RuralRoute: RuralRoute,
   LugaresSlugRoute: LugaresSlugRoute,
   LugaresIndexRoute: LugaresIndexRoute,
 }

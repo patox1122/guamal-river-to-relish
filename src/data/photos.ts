@@ -25,7 +25,8 @@ export type Photo = {
 
 const C = "https://commons.wikimedia.org/wiki/File:";
 
-export const photos = {
+
+const _p = {
   puenteHumadea: {
     id: "puenteHumadea",
     src: puenteHumadea.url,
@@ -142,5 +143,7 @@ export const photos = {
   },
 } satisfies Record<string, Photo>;
 
-export type PhotoKey = keyof typeof photos;
+export type PhotoKey = keyof typeof _p;
+export const photos: Record<PhotoKey, Photo> = _p;
+
 export const allPhotos: Photo[] = Object.values(photos);

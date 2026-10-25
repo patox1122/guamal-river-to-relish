@@ -22,7 +22,7 @@ function Lugares() {
   const { q = "", cat } = Route.useSearch();
   const navigate = useNavigate({ from: "/lugares/" });
   const results = filterPlaces(places, q, cat ?? "todas");
-  const set = (next: { q?: string; cat?: Category }) =>
+  const set = (next: { q?: string | undefined; cat?: Category | undefined }) =>
     navigate({ search: (s) => ({ ...s, ...next }), replace: true });
 
   return (

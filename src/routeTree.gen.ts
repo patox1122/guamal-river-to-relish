@@ -10,33 +10,53 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as LugaresIndexRouteImport } from './routes/lugares.index'
+import { Route as LugaresSlugRouteImport } from './routes/lugares.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LugaresIndexRoute = LugaresIndexRouteImport.update({
+  id: '/lugares/',
+  path: '/lugares/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LugaresSlugRoute = LugaresSlugRouteImport.update({
+  id: '/lugares/$slug',
+  path: '/lugares/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/lugares/$slug': typeof LugaresSlugRoute
+  '/lugares/': typeof LugaresIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/lugares/$slug': typeof LugaresSlugRoute
+  '/lugares': typeof LugaresIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/lugares/$slug': typeof LugaresSlugRoute
+  '/lugares/': typeof LugaresIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/lugares/$slug' | '/lugares/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/lugares/$slug' | '/lugares'
+  id: '__root__' | '/' | '/lugares/$slug' | '/lugares/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  LugaresSlugRoute: typeof LugaresSlugRoute
+  LugaresIndexRoute: typeof LugaresIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +68,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/lugares/': {
+      id: '/lugares/'
+      path: '/lugares'
+      fullPath: '/lugares/'
+      preLoaderRoute: typeof LugaresIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lugares/$slug': {
+      id: '/lugares/$slug'
+      path: '/lugares/$slug'
+      fullPath: '/lugares/$slug'
+      preLoaderRoute: typeof LugaresSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  LugaresSlugRoute: LugaresSlugRoute,
+  LugaresIndexRoute: LugaresIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

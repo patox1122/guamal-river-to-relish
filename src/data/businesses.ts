@@ -1,0 +1,62 @@
+export type Business = { name: string; type: "Hotel urbano" | "Finca u hotel rural" | "Restaurante o comida"; slug: string };
+
+const h = (name: string, slug: string): Business => ({ name, slug, type: "Hotel urbano" });
+const f = (name: string, slug: string): Business => ({ name, slug, type: "Finca u hotel rural" });
+const r = (name: string, slug: string): Business => ({ name, slug, type: "Restaurante o comida" });
+
+/** Nombres tal como aparecen en el directorio turístico de Guamal (revisado el 25/10/2026). */
+export const businesses: Business[] = [
+  h("Amarut Hotel Boutique", "amarut-hotel-boutique"),
+  h("Aris Resort", "aris-resort"),
+  h("Hotel Brisas de Guamal", "hotel-brisas-de-guamal"),
+  h("Hotel Casa Grande Guamal", "hotel-casa-grande-guamal"),
+  h("Hotel Eli", "hotel-eli"),
+  h("Hotel Guamal Plaza", "hotel-guamal-plaza"),
+  h("Hotel GuamalUno", "hotel-guamaluno"),
+  h("Hotel La Casa Real", "hotel-la-casa-real-2"),
+  h("Hotel La Casona Guamal", "hotel-la-casona-guamal"),
+  h("Hotel Los Potrillos", "hotel-los-potrillos-guamal"),
+  h("Hotel Orquídea Llanera", "hotel-orquidea-llanera"),
+  h("Hotel Real Caracolí", "hotel-real-caracoli"),
+  h("Hotel Viña Azul", "hotel-viua-azul-ht"),
+  f("Cabaña Aljos", "cabaua-aljos-casa-turistica-de-alejandra-rodriguez"),
+  f("Cabaña Los Pinos", "cabaua-los-pinos"),
+  f("Casa Quinta El Maná", "casa-quinta-el-mana-finca-de-paula-carolina-riauo"),
+  f("Casa turística de Claudia Patricia Ardila", "casa-turistica-de-claudia-patricia-ardila"),
+  f("Complejo Agroturístico Villa Florez", "complejo-agroturistico-villa-florez"),
+  f("Mandarina House", "finca-agroturistica-el-wallaby"),
+  f("Finca El Pindal", "finca-el-pindal"),
+  f("Finca Hotel Buenos Aires", "finca-hotel-buenos-aires"),
+  f("Finca San Felipe", "finca-san-felipe-casa-turistica-de-patricia-peua"),
+  f("Finca Turística El Encanto (Playa Maui)", "finca-turistica-el-encanto-playa-maui"),
+  f("Finca Turística La Santanera", "finca-turistica-la-santanera-eventos"),
+  f("Finca Turística Luis Cinco", "finca-turistica-luis-cinco"),
+  f("Finca Turística San José", "finca-turistica-san-jose"),
+  f("Finca Turística Villa Laura", "finca-turistica-villa-laura"),
+  f("Finca Villa Carmelita", "finca-villa-carmelita"),
+  f("Finca Villa Chela", "finca-villa-chela"),
+  f("Hotel Reina Victoria", "hotel-reina-victoria"),
+  f("Hotel Río Humadea", "hotel-rio-humadea"),
+  f("Sonryguay Alojamiento Rural", "sonryguay-alojamiento-rural"),
+  f("Tierra Linda Campestre", "tierra-linda-campestre"),
+  r("Andrés Parrilla", "andres-parrilla"),
+  r("Arepas Rellenitas", "arepas-rellenitas"),
+  r("Casa China Express", "casa-china-express"),
+  r("El Fogón Llanero", "el-fogon-llanero"),
+  r("El Garcero", "el-garcero"),
+  r("El Patio Restaurante Bar", "el-patio-restaurante-bar-guamal"),
+  r("Empanadas Miniwimpy", "empanadas-miniwimpy"),
+  r("La Enramada Llanera", "la-enramada-llanera"),
+  r("La Parrilla de Ancízar", "la-parrilla-de-ancizar"),
+  r("Mar y Río", "mar-y-rio"),
+  r("Restaurante La Talanquera", "parador-restaurante-la-talanquera"),
+  r("Pescacol Restaurante", "pescacol-restaurante"),
+  r("Restaurante-Bar Mamona's", "restaurante-bar-mamonas"),
+  r("Restaurante El Popular", "restaurante-el-popular"),
+  r("Sol y Luna", "sol-y-luna"),
+  r("Superaves El Corral", "superaves-el-corral"),
+  r("Taimaku Parque Restaurante", "taimaku-parque-restaurante"),
+  r("UYY Restaurante", "uyy-restaurante"),
+];
+
+export const businessUrl = (slug: string) => `https://turismoguamalmeta.com/sitio/${slug}`;

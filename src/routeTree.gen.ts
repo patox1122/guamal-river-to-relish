@@ -10,12 +10,48 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ConoceRouteImport } from './routes/conoce'
+import { Route as CulturaRouteImport } from './routes/cultura'
+import { Route as FestivalesRouteImport } from './routes/festivales'
+import { Route as GastronomiaRouteImport } from './routes/gastronomia'
+import { Route as NaturalezaRouteImport } from './routes/naturaleza'
+import { Route as ParquesRouteImport } from './routes/parques'
 import { Route as LugaresIndexRouteImport } from './routes/lugares.index'
 import { Route as LugaresSlugRouteImport } from './routes/lugares.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConoceRoute = ConoceRouteImport.update({
+  id: '/conoce',
+  path: '/conoce',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CulturaRoute = CulturaRouteImport.update({
+  id: '/cultura',
+  path: '/cultura',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FestivalesRoute = FestivalesRouteImport.update({
+  id: '/festivales',
+  path: '/festivales',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GastronomiaRoute = GastronomiaRouteImport.update({
+  id: '/gastronomia',
+  path: '/gastronomia',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NaturalezaRoute = NaturalezaRouteImport.update({
+  id: '/naturaleza',
+  path: '/naturaleza',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ParquesRoute = ParquesRouteImport.update({
+  id: '/parques',
+  path: '/parques',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LugaresIndexRoute = LugaresIndexRouteImport.update({
@@ -31,30 +67,82 @@ const LugaresSlugRoute = LugaresSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/conoce': typeof ConoceRoute
+  '/cultura': typeof CulturaRoute
+  '/festivales': typeof FestivalesRoute
+  '/gastronomia': typeof GastronomiaRoute
+  '/naturaleza': typeof NaturalezaRoute
+  '/parques': typeof ParquesRoute
   '/lugares/$slug': typeof LugaresSlugRoute
   '/lugares/': typeof LugaresIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/conoce': typeof ConoceRoute
+  '/cultura': typeof CulturaRoute
+  '/festivales': typeof FestivalesRoute
+  '/gastronomia': typeof GastronomiaRoute
+  '/naturaleza': typeof NaturalezaRoute
+  '/parques': typeof ParquesRoute
   '/lugares/$slug': typeof LugaresSlugRoute
   '/lugares': typeof LugaresIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/conoce': typeof ConoceRoute
+  '/cultura': typeof CulturaRoute
+  '/festivales': typeof FestivalesRoute
+  '/gastronomia': typeof GastronomiaRoute
+  '/naturaleza': typeof NaturalezaRoute
+  '/parques': typeof ParquesRoute
   '/lugares/$slug': typeof LugaresSlugRoute
   '/lugares/': typeof LugaresIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/lugares/$slug' | '/lugares/'
+  fullPaths:
+    | '/'
+    | '/conoce'
+    | '/cultura'
+    | '/festivales'
+    | '/gastronomia'
+    | '/naturaleza'
+    | '/parques'
+    | '/lugares/$slug'
+    | '/lugares/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/lugares/$slug' | '/lugares'
-  id: '__root__' | '/' | '/lugares/$slug' | '/lugares/'
+  to:
+    | '/'
+    | '/conoce'
+    | '/cultura'
+    | '/festivales'
+    | '/gastronomia'
+    | '/naturaleza'
+    | '/parques'
+    | '/lugares/$slug'
+    | '/lugares'
+  id:
+    | '__root__'
+    | '/'
+    | '/conoce'
+    | '/cultura'
+    | '/festivales'
+    | '/gastronomia'
+    | '/naturaleza'
+    | '/parques'
+    | '/lugares/$slug'
+    | '/lugares/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ConoceRoute: typeof ConoceRoute
+  CulturaRoute: typeof CulturaRoute
+  FestivalesRoute: typeof FestivalesRoute
+  GastronomiaRoute: typeof GastronomiaRoute
+  NaturalezaRoute: typeof NaturalezaRoute
+  ParquesRoute: typeof ParquesRoute
   LugaresSlugRoute: typeof LugaresSlugRoute
   LugaresIndexRoute: typeof LugaresIndexRoute
 }
@@ -66,6 +154,48 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/conoce': {
+      id: '/conoce'
+      path: '/conoce'
+      fullPath: '/conoce'
+      preLoaderRoute: typeof ConoceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cultura': {
+      id: '/cultura'
+      path: '/cultura'
+      fullPath: '/cultura'
+      preLoaderRoute: typeof CulturaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/festivales': {
+      id: '/festivales'
+      path: '/festivales'
+      fullPath: '/festivales'
+      preLoaderRoute: typeof FestivalesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gastronomia': {
+      id: '/gastronomia'
+      path: '/gastronomia'
+      fullPath: '/gastronomia'
+      preLoaderRoute: typeof GastronomiaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/naturaleza': {
+      id: '/naturaleza'
+      path: '/naturaleza'
+      fullPath: '/naturaleza'
+      preLoaderRoute: typeof NaturalezaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/parques': {
+      id: '/parques'
+      path: '/parques'
+      fullPath: '/parques'
+      preLoaderRoute: typeof ParquesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/lugares/': {
@@ -87,6 +217,12 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ConoceRoute: ConoceRoute,
+  CulturaRoute: CulturaRoute,
+  FestivalesRoute: FestivalesRoute,
+  GastronomiaRoute: GastronomiaRoute,
+  NaturalezaRoute: NaturalezaRoute,
+  ParquesRoute: ParquesRoute,
   LugaresSlugRoute: LugaresSlugRoute,
   LugaresIndexRoute: LugaresIndexRoute,
 }

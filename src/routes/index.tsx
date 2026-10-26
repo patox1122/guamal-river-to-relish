@@ -99,7 +99,7 @@ function Home() {
       <section className="mx-auto mt-20 grid max-w-7xl gap-10 px-4 md:grid-cols-2 md:items-center">
         <Figure photo="iglesiaNoche" className="aspect-[4/3]" />
         <div>
-          <SectionTitle eyebrow="Turismo local" title="¿Por qué visitar con responsabilidad?">
+          <SectionTitle eyebrow="Un favor" title="Lo que le pedimos al que viene">
             <p>
               Cuando comes en un restaurante de Guamal, te hospedas en una finca o compras cacao a un productor, ese dinero se queda en el municipio. Cuidar los ríos y respetar a la gente es lo que permite que los próximos visitantes también disfruten de Guamal.
             </p>

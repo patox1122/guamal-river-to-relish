@@ -1,11 +1,12 @@
 import { Link } from "@tanstack/react-router";
 import { MapPin } from "lucide-react";
 import { photos } from "@/data/photos";
-import { categoryLabel, type Place } from "@/data/places";
-import { PhotoPending, StatusBadge } from "./Decor";
+import { categoryLabel, placePhoto, type Place } from "@/data/places";
+import { StatusBadge } from "./Decor";
 
 export function PlaceCard({ place }: { place: Place }) {
-  const p = place.photo ? photos[place.photo] : undefined;
+  const p = photos[placePhoto(place)];
+  const ref = !place.photo;
   return (
     <Link
       to="/lugares/$slug"
@@ -13,8 +14,9 @@ export function PlaceCard({ place }: { place: Place }) {
       className="group flex flex-col overflow-hidden rounded-lg border bg-card transition hover:-translate-y-0.5 hover:shadow-md"
     >
       {p ? (
-        <div className="aspect-[16/10] overflow-hidden bg-muted">
+        <div className="relative aspect-[16/10] overflow-hidden bg-muted">
           <img src={p.src} alt={p.alt} loading="lazy" className="h-full w-full object-cover transition group-hover:scale-[1.03]" />
+          {ref && <span className="absolute left-2 top-2 rounded bg-background/85 px-1.5 py-0.5 text-[11px] font-semibold text-muted-foreground">Foto de referencia</span>}
         </div>
       ) : (
         <PhotoPending label={place.name} className="aspect-[16/10] rounded-none border-0 border-b-2" />

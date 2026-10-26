@@ -9,6 +9,11 @@ import mamona from "@/assets/photos/carne-mamona.jpg.asset.json";
 import arpa from "@/assets/photos/arpa-llanera.jpg.asset.json";
 import joropo from "@/assets/photos/joropo-baile.jpg.asset.json";
 import cacao from "@/assets/photos/cacao.jpg.asset.json";
+import elEncanto from "@/assets/photos/el-encanto.jpg.asset.json";
+import calleVereda from "@/assets/photos/calle-vereda.jpg.asset.json";
+import guayuriba from "@/assets/photos/rio-guayuriba.jpg.asset.json";
+import joropodromo from "@/assets/photos/joropodromo.jpg.asset.json";
+import canoAcacias from "@/assets/photos/cano-acacias.jpg.asset.json";
 
 export type Photo = {
   id: string;
@@ -140,6 +145,59 @@ const _p = {
     source: `${C}Cacao_san_vicente_de_chucuri_por_r_chu_r.jpg`,
     inGuamal: false,
     note: "Imagen de referencia del cultivo de cacao (Santander); no es de Guamal.",
+  },
+  elEncanto: {
+    id: "elEncanto",
+    src: elEncanto.url,
+    alt: "Familia bañándose en una piscina con kiosco central, rodeada de palmas, en Guamal",
+    title: "El encanto",
+    author: "jorge4138 (Panoramio)",
+    license: "CC BY 3.0",
+    source: `${C}El_encanto_-_panoramio.jpg`,
+    inGuamal: true,
+  },
+  calleVereda: {
+    id: "calleVereda",
+    src: calleVereda.url,
+    alt: "Calle destapada con casas, plataneras y árboles en las afueras de Guamal",
+    title: "Finca doña Mercedes",
+    author: "jorge4138 (Panoramio)",
+    license: "CC BY 3.0",
+    source: `${C}Finca_do%C3%B1a_mercedes_-_panoramio_(1).jpg`,
+    inGuamal: true,
+  },
+  guayuriba: {
+    id: "guayuriba",
+    src: guayuriba.url,
+    alt: "Río de piedemonte con playa de piedras y montañas cubiertas de selva",
+    title: "Río Guayuriba",
+    author: "CarlosE Duarte (Panoramio)",
+    license: "CC BY 3.0",
+    source: `${C}Rio_Guayuriba_-_panoramio.jpg`,
+    inGuamal: false,
+    note: "Río Guayuriba, vecino de Guamal; foto de referencia del piedemonte.",
+  },
+  canoAcacias: {
+    id: "canoAcacias",
+    src: canoAcacias.url,
+    alt: "Caño de agua verde y cristalina entre piedras grandes y una pequeña cascada",
+    title: "Caño cristalino en Acacías, Meta",
+    author: "CarlosE Duarte (Panoramio)",
+    license: "CC BY 3.0",
+    source: `${C}Ca%C3%B1o_cristalino_en_Acacias,_Meta_-_panoramio.jpg`,
+    inGuamal: false,
+    note: "Caño en Acacías, municipio vecino; foto de referencia.",
+  },
+  joropodromo: {
+    id: "joropodromo",
+    src: joropodromo.url,
+    alt: "Parejas con faldas floreadas y sombrero bailando joropo en la calle",
+    title: "Joropódromo en 2023",
+    author: "Canal Global Televisión",
+    license: "CC BY 3.0",
+    source: `${C}Jorop%C3%B3dromo_en_2023_(1).jpg`,
+    inGuamal: false,
+    note: "Desfile de joropo en Villavicencio; foto de referencia, no es del Festival de Colonias.",
   },
 } satisfies Record<string, Photo>;
 

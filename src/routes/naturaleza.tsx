@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { AlertTriangle } from "lucide-react";
 import { places } from "@/data/places";
-import { Figure, PageHero, PhotoPending, SectionTitle } from "@/components/site/Decor";
+import { Figure, PageHero, SectionTitle } from "@/components/site/Decor";
 import { PlaceCard } from "@/components/site/PlaceCard";
 import { MapBlock } from "@/components/map/MapBlock";
 import { seo } from "@/lib/seo";
@@ -44,7 +44,7 @@ function Naturaleza() {
             </SectionTitle>
           </div>
           <Figure photo="hormiga" className="aspect-[4/3]" />
-          <PhotoPending label="Fotografía original del equipo: río de aguas poco profundas, piedras y vegetación" className="aspect-[4/3]" />
+          <Figure photo="canoAcacias" className="aspect-[4/3]" />
         </div>
       </section>
       <section className="mx-auto max-w-7xl px-4 py-14">

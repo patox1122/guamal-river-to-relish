@@ -39,7 +39,7 @@ function Home() {
             <span className="italic text-accent">Vive el Llano.</span>
           </h1>
           <p className="mt-5 max-w-xl text-lg text-forest-foreground/90">
-            Guamal está en el piedemonte del Meta, donde la cordillera baja hacia la llanura. Aquí hay ríos de piedra, un parque con árboles grandes, cacao en las veredas y comida a la llanera.
+            Somos estudiantes y esta es nuestra guía del pueblo. Guamal queda donde la cordillera se acaba y empieza el llano: ríos de piedra y agua fría, un parque con árboles viejos, cacao en las veredas y mamona los domingos.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link to="/lugares" className="rounded-md bg-accent px-5 py-3 font-semibold text-accent-foreground hover:brightness-95">
@@ -79,10 +79,27 @@ function Home() {
         </div>
       </section>
 
+      <section className="mx-auto mt-20 max-w-7xl px-4">
+        <SectionTitle eyebrow="Álbum" title="Guamal en fotos">
+          <p>Fotos libres que encontramos de Guamal. Si tienes fotos del pueblo y quieres compartirlas, búscanos en la ExpoJOMACO.</p>
+        </SectionTitle>
+        <div className="mt-10 grid grid-cols-2 gap-6 md:grid-cols-4">
+          {(["iglesia", "alcaraban", "elEncanto", "flor"] as const).map((k, i) => (
+            <figure
+              key={k}
+              className={`bg-card p-2 pb-3 shadow-md ${["-rotate-2", "rotate-1", "-rotate-1", "rotate-2"][i]} transition hover:rotate-0`}
+            >
+              <img src={photos[k].src} alt={photos[k].alt} loading="lazy" className="aspect-square w-full object-cover" />
+              <figcaption className="mt-2 text-center font-display text-sm italic">{photos[k].title}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+
       <section className="mx-auto mt-20 grid max-w-7xl gap-10 px-4 md:grid-cols-2 md:items-center">
         <Figure photo="iglesiaNoche" className="aspect-[4/3]" />
         <div>
-          <SectionTitle eyebrow="Turismo local" title="¿Por qué visitar con responsabilidad?">
+          <SectionTitle eyebrow="Un favor" title="Lo que le pedimos al que viene">
             <p>
               Cuando comes en un restaurante de Guamal, te hospedas en una finca o compras cacao a un productor, ese dinero se queda en el municipio. Cuidar los ríos y respetar a la gente es lo que permite que los próximos visitantes también disfruten de Guamal.
             </p>

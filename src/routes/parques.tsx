@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { places } from "@/data/places";
-import { Figure, PageHero, PhotoPending, SectionTitle } from "@/components/site/Decor";
+import { Figure, PageHero, SectionTitle } from "@/components/site/Decor";
 import { PlaceRow } from "@/components/site/PlaceCard";
 import { seo } from "@/lib/seo";
 
@@ -23,7 +23,7 @@ function Parques() {
         <div className="grid gap-6 md:grid-cols-3">
           <Figure photo="iglesia" className="aspect-[3/4]" />
           <Figure photo="iglesiaNoche" className="aspect-[3/4]" />
-          <PhotoPending label="Fotografía original del equipo: parque principal con árboles, bancas y espacio público" className="aspect-[3/4]" />
+          <Figure photo="alcaraban" className="aspect-[3/4]" />
         </div>
         <div className="mt-14 grid gap-10 md:grid-cols-[1fr_1.5fr]">
           <SectionTitle eyebrow="Lo que sabemos" title="Árboles con historia">

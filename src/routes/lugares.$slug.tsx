@@ -1,9 +1,9 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ExternalLink, MapPin } from "lucide-react";
 import { useState } from "react";
-import { photos } from "@/data/photos";
-import { categoryLabel, getPlace, REVIEWED } from "@/data/places";
-import { Figure, PhotoPending, StatusBadge } from "@/components/site/Decor";
+import { photos, type PhotoKey } from "@/data/photos";
+import { categoryLabel, getPlace, placePhoto, REVIEWED } from "@/data/places";
+import { Figure, StatusBadge } from "@/components/site/Decor";
 import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/lugares/$slug")({
@@ -27,8 +27,8 @@ export const Route = createFileRoute("/lugares/$slug")({
 
 function Ficha() {
   const { place } = Route.useLoaderData();
-  const gallery = place.gallery ?? (place.photo ? [place.photo] : []);
-  const [current, setCurrent] = useState(gallery[0]);
+  const gallery = place.gallery ?? [placePhoto(place)];
+  const [current, setCurrent] = useState<PhotoKey>(gallery[0]!);
   const c = place.coords;
 
   return (
@@ -36,7 +36,8 @@ function Ficha() {
       <Link to="/lugares" className="text-sm font-semibold text-river hover:underline">← Todos los lugares</Link>
       <div className="mt-6 grid gap-10 lg:grid-cols-[1.3fr_1fr]">
         <div>
-          {current ? <Figure photo={current} className="aspect-[4/3]" /> : <PhotoPending label={place.name} className="aspect-[4/3]" />}
+          <Figure photo={current} className="aspect-[4/3]" />
+          {!place.photo && <p className="mt-1 text-xs italic text-muted-foreground">Todavía no tenemos una foto libre de este lugar; mostramos una de la zona.</p>}
           {gallery.length > 1 && (
             <div className="mt-3 flex gap-2" role="group" aria-label="Galería">
               {gallery.map((g) => (

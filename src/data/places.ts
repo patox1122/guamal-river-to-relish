@@ -366,6 +366,7 @@ export const places: Place[] = [
   },
   {
     slug: "finca-el-encanto-playa-maui",
+    photo: "elEncanto",
     name: "Finca Turística El Encanto (Playa Maui)",
     category: "alojamiento",
     summary: "Centro vacacional de estilo playero con piscinas.",
@@ -492,6 +493,22 @@ export const places: Place[] = [
     source: AGRO,
   },
 ];
+
+/** Foto propia del lugar o, si no tiene, una foto de referencia según su categoría. */
+const FALLBACK: Record<Category, PhotoKey[]> = {
+  naturaleza: ["canoAcacias", "guayuriba"],
+  parques: ["alcaraban"],
+  cultura: ["joropodromo"],
+  gastronomia: ["mamona"],
+  alojamiento: ["calleVereda", "flor"],
+  rural: ["calleVereda", "cacao"],
+};
+export function placePhoto(place: Place): PhotoKey {
+  if (place.photo) return place.photo;
+  const list = FALLBACK[place.category];
+  const i = places.filter((p) => p.category === place.category && !p.photo).indexOf(place);
+  return list[Math.max(i, 0) % list.length]!;
+}
 
 export function getPlace(slug: string) {
   return places.find((p) => p.slug === slug);

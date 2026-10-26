@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { PageHero, PhotoPending, SectionTitle } from "@/components/site/Decor";
+import { Figure, PageHero, SectionTitle } from "@/components/site/Decor";
 import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/festivales")({
@@ -56,7 +56,7 @@ function Festivales() {
           ))}
         </ol>
         <div className="space-y-6">
-          <PhotoPending label="Foto del Festival de Colonias con permiso de su autor" className="aspect-[4/3]" />
+          <Figure photo="joropodromo" className="aspect-[4/3]" />
           <SectionTitle eyebrow="Otros eventos" title="Agenda municipal">
             <p>No encontramos otros eventos con fechas confirmadas. Consulta las noticias de la Alcaldía para ver la agenda actualizada.</p>
           </SectionTitle>

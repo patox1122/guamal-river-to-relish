@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ExternalLink, MapPin } from "lucide-react";
 import { useState } from "react";
-import { photos } from "@/data/photos";
+import { photos, type PhotoKey } from "@/data/photos";
 import { categoryLabel, getPlace, placePhoto, REVIEWED } from "@/data/places";
 import { Figure, StatusBadge } from "@/components/site/Decor";
 import { seo } from "@/lib/seo";
@@ -28,7 +28,7 @@ export const Route = createFileRoute("/lugares/$slug")({
 function Ficha() {
   const { place } = Route.useLoaderData();
   const gallery = place.gallery ?? [placePhoto(place)];
-  const [current, setCurrent] = useState(gallery[0]);
+  const [current, setCurrent] = useState<PhotoKey>(gallery[0]!);
   const c = place.coords;
 
   return (

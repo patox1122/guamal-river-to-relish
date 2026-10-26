@@ -507,7 +507,7 @@ export function placePhoto(place: Place): PhotoKey {
   if (place.photo) return place.photo;
   const list = FALLBACK[place.category];
   const i = places.filter((p) => p.category === place.category && !p.photo).indexOf(place);
-  return list[Math.max(i, 0) % list.length];
+  return list[Math.max(i, 0) % list.length]!;
 }
 
 export function getPlace(slug: string) {

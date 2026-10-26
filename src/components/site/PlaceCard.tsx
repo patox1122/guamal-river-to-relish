@@ -11,16 +11,16 @@ export function PlaceCard({ place }: { place: Place }) {
     <Link
       to="/lugares/$slug"
       params={{ slug: place.slug }}
-      className="group flex flex-col overflow-hidden rounded-lg border bg-card transition hover:-translate-y-0.5 hover:shadow-md"
+      className="group flex flex-col overflow-hidden rounded-sm border bg-card shadow-[2px_3px_0_var(--border)] transition hover:-rotate-[0.4deg] hover:shadow-[4px_6px_0_var(--border)]"
     >
-      {p ? (
-        <div className="relative aspect-[16/10] overflow-hidden bg-muted">
-          <img src={p.src} alt={p.alt} loading="lazy" className="h-full w-full object-cover transition group-hover:scale-[1.03]" />
-          {ref && <span className="absolute left-2 top-2 rounded bg-background/85 px-1.5 py-0.5 text-[11px] font-semibold text-muted-foreground">Foto de referencia</span>}
-        </div>
-      ) : (
-        <PhotoPending label={place.name} className="aspect-[16/10] rounded-none border-0 border-b-2" />
-      )}
+      <div className="relative aspect-[16/10] overflow-hidden bg-muted">
+        <img src={p.src} alt={p.alt} loading="lazy" className="h-full w-full object-cover transition group-hover:scale-[1.03]" />
+        {ref && (
+          <span className="absolute left-2 top-2 rounded-sm bg-background/90 px-1.5 py-0.5 text-[11px] font-semibold text-muted-foreground">
+            Foto de referencia
+          </span>
+        )}
+      </div>
       <div className="flex flex-1 flex-col gap-2 p-4">
         <p className="eyebrow">{categoryLabel(place.category)}</p>
         <h3 className="text-xl font-semibold leading-snug group-hover:text-primary">{place.name}</h3>
